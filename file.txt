@@ -1,2 +1,3 @@
 Git rocks!
 this is easy
+Testing VIM
