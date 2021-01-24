@@ -45,7 +45,7 @@ public class BubbleSortDemo implements SortingDemo{
 		for (i = 0; i < arr.length; i++) {
 			// repeatedly compare each element with its next element and interchange.
 			isSorted = true;
-			for (int j = 1; j < arr.length; j++) {
+			for (int j = 1; j < arr.length-i; j++) {
 				if (arr[j - 1] > arr[j]) {
 					// interchange the items if the arr at position i+1 is greater.
 					temp = arr[j];

@@ -35,15 +35,16 @@ public class MergeSortDemo implements SortingDemo {
 	 * @param end
 	 */
 	private void mergeSort(int[] arr, int end) {
+		// stop dividing if the subarray only has 1 element
 		if(end<2) {
 			return;
 		}
-		
+		// else compute the new mid the initialize the size of the left and right array. 
 		int mid = end/2;
 		int[] leftArr=new int[mid];
 		int[] rightArr=new int[end-mid];
 		
-		
+		// populate the left array and right array based on mid 
 		for(int i=0,j=0;i<end;i++) {
 			if(i<mid) leftArr[i]=arr[i];
 			else {
@@ -52,8 +53,10 @@ public class MergeSortDemo implements SortingDemo {
 			}
 			
 		}
+		
+		// further divide the sub-arrays. 
 		mergeSort(leftArr,mid);
-		mergeSort(rightArr, end-mid);// divide the subarrays
+		mergeSort(rightArr, end-mid);
 		
 		// merge all the subarrays.
 		merge(arr,leftArr,rightArr,mid,end-mid);
@@ -69,7 +72,7 @@ public class MergeSortDemo implements SortingDemo {
 	 * @param right- end position of right array
 	 */
 	private void merge(int[] arr, int[] leftArr, int[] rightArr,int left, int right){
-		//copy the contents of leftArr and Rightarr to the correct position into Arr.
+		// copy the contents of leftArr and rightArr to the correct position into array.
 		int i=0,j=0,k=0;
 		while(i<left && j<right) {
 			if(leftArr[i]<rightArr[j]) {

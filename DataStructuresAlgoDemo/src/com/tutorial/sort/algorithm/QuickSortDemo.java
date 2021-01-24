@@ -25,6 +25,12 @@ public class QuickSortDemo implements SortingDemo {
 		return arr;
 	}
 	
+	/**
+	 * Partition the arrays into sub-arrays repeatedly and divide into subarrays. 
+	 * @param arr
+	 * @param start
+	 * @param end
+	 */
 	private void quickSort(int[] arr, int start , int end) {
 		int partition = partition(arr, start ,end);
 		if(partition-1>start) {
@@ -48,7 +54,7 @@ public class QuickSortDemo implements SortingDemo {
 		int pivot =arr[end];
 		int temp=0;
 		for(int i=start;i<end;i++) {
-			// left shift the position of the elements 
+			// swap the element with the smallest available position.
 			if(arr[i]<pivot) {
 				temp=arr[start];
 				arr[start]=arr[i];

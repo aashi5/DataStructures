@@ -1,5 +1,8 @@
 package com.tutorial.data.structures.algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Each node has its own value and a reference to the next node in sequence. use
  * for implementations of tree and graphs,stack, queues.
@@ -12,22 +15,22 @@ public class LinkedListDemo {
 	public static void main(String ...args) {
 		SingleLinkedList sLList= new SingleLinkedList();
 		sLList.addNodeToEnd(3);
-		sLList.addNodeToEnd(4);
+		sLList.addNodeToEnd(1);
 		sLList.addNodeToEnd(6);
 		sLList.addNodeToFront(9);
-		sLList.printList();
+		//sLList.printList();
+		/*
+		 * String result = sLList.deleteValueNode(4)?"Node Deleted ":"Node not deleted";
+		 * System.out.println(result); sLList.printList();
+		 * 
+		 * result = sLList.deleteValueNode(9)?"Node Deleted ":"Node not deleted";
+		 * System.out.println(result); sLList.printList();
+		 * 
+		 * result = sLList.deleteValueNode(6)?"Node Deleted ":"Node not deleted";
+		 * System.out.println(result); sLList.printList();
+		 */
 		
-		String result = sLList.deleteValueNode(4)?"Node Deleted ":"Node not deleted";
-		System.out.println(result);
-		sLList.printList();
-		
-		result = sLList.deleteValueNode(9)?"Node Deleted ":"Node not deleted";
-		System.out.println(result);
-		sLList.printList();
-	
-		result = sLList.deleteValueNode(6)?"Node Deleted ":"Node not deleted";
-		System.out.println(result);
-		sLList.printList();
+		sLList.removeDuplicates();
 		
 		
 		
@@ -140,5 +143,30 @@ class SingleLinkedList {
 		return nodeFound;
 	}
 	
-	
+	/**
+	 * 
+	 * @param head
+	 */
+	public void removeDuplicates() {
+		
+		List<Integer> numList = new ArrayList<Integer>();
+		if(this.head==null) {
+			return;
+		}
+		Node curNode =this.head;
+		numList.add(head.data);
+		while(curNode.next!=null) {
+			if(numList.contains(curNode.next.data)) {
+				// remove the duplicate.
+				Node nextNode = curNode.next;
+				curNode.next=nextNode.next;
+			}else {
+				//add the number to the list.
+				numList.add(curNode.next.data);
+				curNode=curNode.next;
+			}
+			
+		}
+		printList();
+	}
 }
