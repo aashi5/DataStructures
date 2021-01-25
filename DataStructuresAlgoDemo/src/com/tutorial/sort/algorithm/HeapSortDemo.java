@@ -52,10 +52,10 @@ public class HeapSortDemo implements SortingDemo {
 	 * 
 	 * @param arr
 	 */
-	private void heapify(int[] arr, int length, int i) {
-		int largest = i;
-		int left = 2 * i + 1;
-		int right = 2 * i + 2;
+	private void heapify(int[] arr, int length, int mid) {
+		int largest = mid;
+		int left = 2 * mid + 1;
+		int right = 2 * mid + 2;
 		int temp = 0;
 
 		// if the left child is bigger than the root make it the largest
@@ -67,10 +67,10 @@ public class HeapSortDemo implements SortingDemo {
 		if (right < length && arr[right] > arr[largest]) {
 			largest = right;
 		}
-		if (largest != i) {
+		if (largest != mid) {
 			// swap so the largest element now becomes the root.
-			temp = arr[i];
-			arr[i] = arr[largest];
+			temp = arr[mid];
+			arr[mid] = arr[largest];
 			arr[largest] = temp;
 			// recursively heapify the affected sub arrays.
 			heapify(arr, length, largest);

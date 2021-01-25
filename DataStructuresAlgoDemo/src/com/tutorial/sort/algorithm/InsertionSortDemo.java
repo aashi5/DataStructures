@@ -4,7 +4,7 @@ import com.tutorial.sort.algorithm.interfaces.SortingDemo;
 
 /**
  * In insertion sort each element in the unsorted element is compared with all
- * the elements before it. to find the first element smaller than the current
+ * the elements before it. to find the greatest element smaller than the current
  * element. All greater elements are shifted to the right to place the current
  * element in its sorted place
  * 
@@ -34,7 +34,7 @@ public class InsertionSortDemo implements SortingDemo {
 		int temp;
 		int j = 0;
 		for (int i = 1; i < arr.length; i++) {
-			temp = arr[i];
+			temp = arr[i]; 
 			j = i - 1;
 			while (j >= 0 && arr[j] > temp) {
 				// right shift the elements.
@@ -42,6 +42,7 @@ public class InsertionSortDemo implements SortingDemo {
 				j = j - 1;
 
 			}
+			
 			arr[j + 1] = temp;
 		}
 		return arr;

@@ -46,9 +46,9 @@ public class MergeSortDemo implements SortingDemo {
 		
 		// populate the left array and right array based on mid 
 		for(int i=0,j=0;i<end;i++) {
-			if(i<mid) leftArr[i]=arr[i];
+			if(i<mid) leftArr[i]=arr[i];// populate elements until mid to left array.
 			else {
-				rightArr[j]=arr[i];
+				rightArr[j]=arr[i]; // populate elements from mid+1 to the end to right array.
 				j++;
 			}
 			
